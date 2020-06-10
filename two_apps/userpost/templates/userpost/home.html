@@ -1,0 +1,16 @@
+{% extends 'userpost/base.html' %}
+{% block content %}
+    {% for post in posts %}
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="{% url 'profile-page' %}">{{ post.user }}</a>
+            <!----The date format is present in Django Documentation - Django Date Filters----->
+            <small class="text-muted">Created on {{ post.created_at|date:"d M, Y" }}, Last updated on {{ post.updated_at|date:"d M, Y (h:i A)" }}</small>
+          </div>
+          <h2><a class="article-title" href="{% url 'detail-page' post.id %}">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.text }}</p>
+        </div>
+      </article>
+    {% endfor %}
+{% endblock content %}

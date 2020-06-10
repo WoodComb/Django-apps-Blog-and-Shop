@@ -1,0 +1,14 @@
+{% extends 'userpost/base.html' %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ post.user }}</a>
+          <!----The date format is present in Django Documentation - Django Date Filters----->
+          <small class="text-muted">Created on {{ post.created_at|date:"d M, Y" }}, Last updated on {{ post.updated_at|date:"d M, Y (h:i A)" }}</small>
+        </div>
+        <h2 class="article-title">{{ post.title }}</h2>
+        <p class="article-content">{{ post.text }}</p>
+      </div>
+    </article>
+{% endblock content %}
