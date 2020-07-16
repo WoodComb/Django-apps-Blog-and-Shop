@@ -1,1 +1,1 @@
-# Tradexa-Internship
+# Django apps- post and product
